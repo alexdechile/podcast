@@ -1,0 +1,207 @@
+/* --- Winamp Theme --- */
+
+/* --- General --- */
+body {
+    background-color: #0a0a0a;
+    font-family: 'Tahoma', sans-serif;
+    color: #ffffff;
+}
+
+/* --- Main Window --- */
+.winamp-main-window {
+    background-color: #1a1a1a;
+    border: 2px solid #555;
+    border-radius: 3px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    max-width: 450px;
+    margin: auto;
+}
+
+/* --- Header --- */
+.winamp-header {
+    background: linear-gradient(to right, #000080, #1010a0);
+    padding: 3px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: move;
+}
+
+.winamp-btn-header {
+    background-color: #c0c0c0;
+    border: 1px solid;
+    border-color: #fff #808080 #808080 #fff;
+    width: 15px;
+    height: 15px;
+    line-height: 12px;
+    font-size: 10px;
+    padding: 0;
+    margin-left: 2px;
+}
+
+/* --- Body & LCD Display --- */
+.winamp-body {
+    background-color: #212121;
+    border: 2px inset #555;
+}
+
+.lcd-display {
+    background-color: #000;
+    color: #00ff41; /* Neon Green */
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5px;
+    border: 2px inset #444;
+    text-shadow: 0 0 5px #00ff41;
+}
+
+.time-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.track-info {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.rec-light-off {
+    color: #3a3a3a;
+}
+
+.rec-light-on {
+    color: #ff0000;
+    text-shadow: 0 0 8px #ff0000;
+    animation: blink 1s infinite;
+}
+
+/* --- Waveform --- */
+#waveform {
+    background-color: #000;
+    border: 1px solid #444;
+    height: 100px;
+}
+
+/* --- Transport Buttons (Skeuomorphic) --- */
+.winamp-btn {
+    background-color: #c0c0c0; /* Silver */
+    border: 2px outset #dfdfdf;
+    width: 40px;
+    height: 30px;
+    margin: 0 5px;
+    font-size: 14px;
+    color: #000;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+    transition: all 0.1s ease-in-out;
+}
+
+.winamp-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.winamp-btn:active {
+    border-style: inset;
+    box-shadow: none;
+    transform: translateY(1px);
+}
+
+/* --- Sliders --- */
+.volume-pan-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.form-range {
+    filter: grayscale(1) brightness(0.8);
+}
+
+/* --- Animations --- */
+@keyframes blink {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* --- EQ Window --- */
+.winamp-eq-window {
+    background-color: #1a1a1a;
+    border: 2px solid #555;
+    border-radius: 3px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    max-width: 450px;
+    margin: auto;
+}
+
+.eq-controls {
+    height: 150px;
+}
+
+.eq-band {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 30px;
+    font-size: 10px;
+    color: #ccc;
+}
+
+.eq-slider {
+    -webkit-appearance: slider-vertical; /* Webkit */
+    writing-mode: bt-lr; /* IE */
+    width: 8px;
+    height: 100px;
+    padding: 0 5px;
+}
+
+/* --- Effects Window --- */
+.winamp-effects-window {
+    background-color: #1a1a1a;
+    border: 2px solid #555;
+    border-radius: 3px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    max-width: 450px;
+    margin: auto;
+}
+
+.winamp-tabs .nav-link {
+    background-color: #333;
+    color: #ccc;
+    border: 1px solid #555;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.winamp-tabs .nav-link.active {
+    background-color: #2a2a2a;
+    color: #fff;
+    border-bottom-color: #2a2a2a;
+}
+
+.tab-content {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border: 1px solid #444;
+    border-top: none;
+    color: #ccc;
+}
+
+.effect-control .form-label {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.form-check-label {
+    font-size: 14px;
+}
+
+.form-switch .form-check-input {
+    background-color: #555;
+    border-color: #888;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: #00ff41;
+    border-color: #00ff41;
+}

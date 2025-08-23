@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast App - Winamp Edition</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/winamp-theme.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="winamp-main-window">
+            <!-- Header -->
+            <div class="winamp-header d-flex justify-content-between align-items-center">
+                <span><i class="fa-solid fa-record-vinyl"></i> PODCAST-APP</span>
+                <div>
+                    <button class="winamp-btn-header">-</button>
+                    <button class="winamp-btn-header">□</button>
+                    <button class="winamp-btn-header">×</button>
+                </div>
+            </div>
+
+            <!-- Body -->
+            <div class="winamp-body p-2">
+                <!-- LCD Display -->
+                <div class="lcd-display d-flex justify-content-between align-items-center mb-2">
+                    <div class="time-display">00:00</div>
+                    <div class="track-info text-center">WINAMP PODCAST</div>
+                    <div class="status-icons">
+                        <span id="rec-light" class="rec-light-off">●</span> REC
+                    </div>
+                </div>
+
+                <!-- Waveform -->
+                <div id="waveform" class="mb-2"></div>
+
+                <!-- Transport Controls -->
+                <div class="transport-controls text-center mb-2">
+                    <button id="record-btn" class="winamp-btn"><i class="fa-solid fa-circle"></i></button>
+                    <button id="play-btn" class="winamp-btn"><i class="fa-solid fa-play"></i></button>
+                    <button id="pause-btn" class="winamp-btn"><i class="fa-solid fa-pause"></i></button>
+                    <button id="stop-btn" class="winamp-btn"><i class="fa-solid fa-stop"></i></button>
+                    <button id="download-btn" class="winamp-btn"><i class="fa-solid fa-download"></i></button>
+                </div>
+
+                <!-- Volume & Pan -->
+                <div class="volume-pan-controls">
+                    <label for="volume-slider">VOL</label>
+                    <input type="range" id="volume-slider" class="form-range" min="0" max="100" value="75">
+                    <label for="pan-slider">PAN</label>
+                    <input type="range" id="pan-slider" class="form-range" min="-1" max="1" value="0" step="0.1">
+                </div>
+            </div>
+        </div>
+
+        <!-- EQ Window -->
+        <div class="winamp-eq-window mt-3">
+            <div class="winamp-header d-flex justify-content-between align-items-center">
+                <span><i class="fa-solid fa-sliders"></i> GRAPHIC EQ</span>
+                <div>
+                    <button class="winamp-btn-header">-</button>
+                    <button class="winamp-btn-header">□</button>
+                    <button class="winamp-btn-header">×</button>
+                </div>
+            </div>
+            <div class="winamp-body p-2">
+                <div class="eq-controls d-flex justify-content-around text-center">
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-24" max="12" value="0" step="1" id="preamp">
+                        <label>PRE</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="60">
+                        <label>60</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="170">
+                        <label>170</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="310">
+                        <label>310</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="600">
+                        <label>600</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="1000">
+                        <label>1K</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="3000">
+                        <label>3K</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="6000">
+                        <label>6K</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="12000">
+                        <label>12K</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="14000">
+                        <label>14K</label>
+                    </div>
+                    <div class="eq-band">
+                        <input type="range" class="form-range eq-slider" orient="vertical" min="-12" max="12" value="0" step="1" data-freq="16000">
+                        <label>16K</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Effects Window -->
+        <div class="winamp-effects-window mt-3">
+            <div class="winamp-header d-flex justify-content-between align-items-center">
+                <span><i class="fa-solid fa-wave-square"></i> AUDIO FX</span>
+                <div>
+                    <button class="winamp-btn-header">-</button>
+                    <button class="winamp-btn-header">□</button>
+                    <button class="winamp-btn-header">×</button>
+                </div>
+            </div>
+            <div class="winamp-body p-2">
+                <!-- Effect Tabs -->
+                <ul class="nav nav-tabs winamp-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#reverb-tab">Reverb</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#delay-tab">Delay</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content mt-2">
+                    <!-- Reverb Tab -->
+                    <div class="tab-pane container active" id="reverb-tab">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="reverb-toggle">
+                            <label class="form-check-label" for="reverb-toggle">Enable Reverb</label>
+                        </div>
+                        <div class="effect-control">
+                            <label for="reverb-decay" class="form-label">Decay</label>
+                            <input type="range" class="form-range" id="reverb-decay" min="0.1" max="10" value="1.5" step="0.1">
+                        </div>
+                        <div class="effect-control mt-2">
+                            <label for="reverb-wet" class="form-label">Wet</label>
+                            <input type="range" class="form-range" id="reverb-wet" min="0" max="1" value="0.5" step="0.01">
+                        </div>
+                    </div>
+
+                    <!-- Delay Tab -->
+                    <div class="tab-pane container fade" id="delay-tab">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="delay-toggle">
+                            <label class="form-check-label" for="delay-toggle">Enable Delay</label>
+                        </div>
+                        <div class="effect-control">
+                            <label for="delay-time" class="form-label">Time</label>
+                            <input type="range" class="form-range" id="delay-time" min="0" max="1" value="0.25" step="0.01">
+                        </div>
+                        <div class="effect-control mt-2">
+                            <label for="delay-feedback" class="form-label">Feedback</label>
+                            <input type="range" class="form-range" id="delay-feedback" min="0" max="0.9" value="0.5" step="0.01">
+                        </div>
+                        <div class="effect-control mt-2">
+                            <label for="delay-wet" class="form-label">Wet</label>
+                            <input type="range" class="form-range" id="delay-wet" min="0" max="1" value="0.5" step="0.01">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/audio-engine.js"></script>
+    <script src="js/visualizer.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/ui-controller.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
